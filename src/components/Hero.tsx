@@ -159,7 +159,7 @@ export default function Hero() {
         style={{
           justifySelf: "center",
           width: "min(100%, 22rem)",
-          aspectRatio: "1 / 1",
+          aspectRatio: "4 / 5",
           borderRadius: "1.75rem",
           overflow: "hidden",
           boxShadow: "var(--shadow)",
@@ -172,7 +172,7 @@ export default function Hero() {
         <img
           src={portfolioData.personal.image}
           alt={`${portfolioData.personal.name} profile picture`}
-          style={{ width: "100%", height: "100%", objectFit: "cover" }}
+          style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center top" }}
         />
       </div>
     </section>
