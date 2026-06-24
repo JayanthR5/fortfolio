@@ -1,11 +1,16 @@
-declare namespace JSX {
-  interface IntrinsicElements {
-    [elemName: string]: Record<string, unknown>;
+/* Additional type declarations for modules without types */
+declare module "react-parallax-tilt" {
+  import { ComponentType, ReactNode, CSSProperties } from "react";
+  interface TiltProps {
+    children?: ReactNode;
+    tiltMaxAngleX?: number;
+    tiltMaxAngleY?: number;
+    scale?: number;
+    transitionSpeed?: number;
+    className?: string;
+    style?: CSSProperties;
+    key?: string | number;
   }
-}
-
-declare module "react/jsx-runtime" {
-  export const Fragment: unknown;
-  export function jsx(type: unknown, props: unknown, key?: string): unknown;
-  export function jsxs(type: unknown, props: unknown, key?: string): unknown;
+  const Tilt: ComponentType<TiltProps>;
+  export default Tilt;
 }

@@ -50,12 +50,13 @@ export const portfolioData = {
   certifications: [
     "IBM SkillsBuild AI & BI Internship",
     "NPTEL Smart Cities",
-    "Alibaba Cloud Computing",
+    "Arduino Bootcamp: Learning Through Projects-Coursera ",
   ],
   leadership: [
     "Vice President, IEEE Computational Intelligence Society",
-    "Organized a data-thon event",
     "1st Runner-up, PathCraft Gen AI Webpage Architect Challenge",
+    "Organized a data-thon event",
+    
   ],
   achievements: [
     "NPTEL Smart Cities | Elite + Gold | 91%",

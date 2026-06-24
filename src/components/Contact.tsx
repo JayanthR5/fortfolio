@@ -1,83 +1,74 @@
+"use client";
+
 import { portfolioData } from "../data/portfolio";
+import { motion } from "framer-motion";
+import ScrollReveal from "./ScrollReveal";
 
 export default function Contact() {
-  return (
-    <section style={{ padding: "1.5rem 1.5rem 0" }}>
-      <div style={sectionShell}>
-        <p style={eyebrow}>Contact</p>
-        <h2 style={title}>Let’s build something useful together.</h2>
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1,
+      },
+    },
+  };
 
-        <div style={gridStyle}>
+  const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.5 },
+    },
+  };
+
+  return (
+    <ScrollReveal className="portfolio-section contact-section">
+      <div className="portfolio-shell">
+        <p className="section-eyebrow">Contact</p>
+        <h2 className="section-title">Let's build something useful together.</h2>
+
+        <motion.div
+          className="section-card-grid"
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-100px" }}
+        >
           <ContactCard
             label="Email"
             value={portfolioData.personal.email}
             href={`https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(portfolioData.personal.email)}`}
+            variants={itemVariants}
           />
-          <ContactCard label="GitHub" value="GitHub Profile" href={portfolioData.personal.github} />
-          <ContactCard label="LinkedIn" value="LinkedIn Profile" href={portfolioData.personal.linkedin} />
-          <ContactCard label="Resume" value="Download Resume" href={portfolioData.personal.resume} />
-        </div>
+          <ContactCard label="GitHub" value="GitHub Profile" href={portfolioData.personal.github} variants={itemVariants} />
+          <ContactCard label="LinkedIn" value="LinkedIn Profile" href={portfolioData.personal.linkedin} variants={itemVariants} />
+          <ContactCard label="Resume" value="Download Resume" href={portfolioData.personal.resume} variants={itemVariants} />
+        </motion.div>
 
         <p style={{ margin: "1rem 0 0", color: "var(--text-soft)" }}>
           LinkedIn is available above as a direct profile link. Email opens through Gmail Compose in the browser for better reliability.
         </p>
       </div>
-    </section>
+    </ScrollReveal>
   );
 }
 
-function ContactCard({ label, value, href }: { label: string; value: string; href: string }) {
+function ContactCard({ label, value, href, variants }: { label: string; value: string; href: string; variants: any }) {
   return (
-    <a href={href} target="_blank" rel="noreferrer" style={cardLink}>
-      <span style={cardLabel}>{label}</span>
+    <motion.a
+      href={href}
+      target="_blank"
+      rel="noreferrer"
+      className="contact-card"
+      variants={variants}
+      whileHover={{ scale: 1.05, y: -5 }}
+      whileTap={{ scale: 0.95 }}
+    >
+      <span className="section-eyebrow" style={{ letterSpacing: "0.14em", fontSize: "0.72rem" }}>{label}</span>
       <strong>{value}</strong>
-    </a>
+    </motion.a>
   );
 }
-
-const sectionShell = {
-  maxWidth: "1100px",
-  margin: "0 auto",
-  padding: "2rem",
-  borderRadius: "1.75rem",
-  background: "var(--surface)",
-  border: "1px solid var(--border)",
-  boxShadow: "var(--shadow)",
-  backdropFilter: "blur(14px)",
-} as const;
-
-const eyebrow = {
-  textTransform: "uppercase",
-  letterSpacing: "0.18em",
-  margin: 0,
-} as const;
-
-const title = {
-  fontSize: "clamp(1.8rem, 4vw, 2.6rem)",
-  margin: "0.4rem 0 1.25rem",
-} as const;
-
-const gridStyle = {
-  display: "grid",
-  gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))",
-  gap: "1rem",
-} as const;
-
-const cardLink = {
-  display: "flex",
-  flexDirection: "column",
-  gap: "0.35rem",
-  padding: "1.1rem",
-  borderRadius: "1.1rem",
-  background: "var(--surface-muted)",
-  border: "1px solid var(--border)",
-  textDecoration: "none",
-  color: "inherit",
-} as const;
-
-const cardLabel = {
-  fontSize: "0.9rem",
-  textTransform: "uppercase",
-  letterSpacing: "0.12em",
-  color: "var(--text-soft)",
-} as const;

@@ -2,7 +2,6 @@
   "name": "fortfolio",
   "version": "0.1.0",
   "private": true,
-
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -10,9 +9,16 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@tsparticles/react": "^4.2.1",
+    "framer-motion": "^12.41.0",
     "next": "^15.3.4",
     "react": "^19.0.0",
-    "react-dom": "^19.0.0"
+    "react-dom": "^19.0.0",
+    "react-parallax-tilt": "^1.7.333",
+    "react-particles": "^2.12.2",
+    "react-type-animation": "^3.2.0",
+    "tsparticles": "^4.2.1",
+    "tsparticles-slim": "^2.12.0"
   },
   "devDependencies": {
     "@types/node": "^22.15.3",
