@@ -3,7 +3,7 @@ export const portfolioData = {
     name: "Jayanth R",
     role: "AI & ML Engineer",
     location: "Mysuru, Karnataka",
-    cgpa: "8.22",
+    cgpa: "8.36",
     email: "jayanthram2528@gmail.com",
     github: "https://github.com/JayanthR5",
     linkedin:
